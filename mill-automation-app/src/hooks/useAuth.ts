@@ -53,7 +53,7 @@ export const useAuth = () => {
         return roleArray.includes(user.role);
     };
 
-    const hasPermission = (permission: string) => {
+    const hasPermission = (_permission: string) => {
         // Implement permission checking logic
         return true;
     };
