@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-cream to-[#FDFCF8] text-olive-dark font-sans min-h-screen;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+
+  /* Buttons */
+  .btn {
+    @apply px-6 py-3 rounded-xl font-medium transition-all duration-300 inline-flex items-center gap-2;
+  }
+
+  .btn-primary {
+    @apply bg-olive-dark text-white hover:bg-olive-medium hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-gold text-white hover:bg-gold-light hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border-2 border-olive-dark text-olive-dark hover:bg-olive-dark hover:text-white;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl p-7 shadow-lg border border-olive-dark/5 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full px-4 py-3 border-2 border-olive-pale rounded-xl focus:outline-none focus:border-olive-medium focus:ring-4 focus:ring-olive-medium/10 transition-all;
+  }
+
+  /* Badges */
+  .badge {
+    @apply px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide inline-block;
+  }
+
+  .badge-success {
+    @apply bg-olive-medium/15 text-olive-medium;
+  }
+
+  .badge-warning {
+    @apply bg-gold/15 text-gold;
+  }
+
+  .badge-danger {
+    @apply bg-accent-red/15 text-accent-red;
+  }
+
+  .badge-info {
+    @apply bg-accent-blue/15 text-accent-blue;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    @apply w-[280px] bg-gradient-to-b from-olive-dark to-[#1e2b1f] text-white fixed h-screen overflow-y-auto shadow-2xl z-50;
+  }
+
+  .nav-item {
+    @apply px-6 py-3 flex items-center gap-3 cursor-pointer transition-all duration-300 border-l-4 border-transparent opacity-70 hover:bg-white/5 hover:opacity-100;
+  }
+
+  .nav-item.active {
+    @apply bg-gold/15 border-l-gold opacity-100 font-medium;
+  }
+
+  /* Stats Card */
+  .stat-card {
+    @apply bg-white p-6 rounded-2xl shadow-lg border border-olive-dark/5 transition-all duration-300 relative overflow-hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full bg-gold scale-y-0 transition-transform duration-300;
+  }
+
+  .stat-card:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+
+  .stat-card:hover::before {
+    @apply scale-y-100;
+  }
+
+  /* Table */
+  .table-container {
+    @apply overflow-x-auto rounded-xl border border-olive-pale;
+  }
+
+  .table {
+    @apply w-full border-collapse;
+  }
+
+  .table thead {
+    @apply bg-olive-pale;
+  }
+
+  .table th {
+    @apply px-4 py-4 text-left font-semibold text-olive-dark text-xs uppercase tracking-wide;
+  }
+
+  .table td {
+    @apply px-4 py-4 border-b border-olive-dark/5;
+  }
+
+  .table tbody tr {
+    @apply transition-colors hover:bg-olive-pale/20;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[2000] animate-fade-in;
+  }
+
+  .modal {
+    @apply bg-white rounded-2xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-slide-up;
+  }
+
+  /* Loading Spinner */
+  .spinner {
+    @apply w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin;
+  }
+
+  /* Empty State */
+  .empty-state {
+    @apply text-center py-12 text-olive-medium/60;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  .nav-item {
+    @apply border-l-0 border-r-4;
+  }
+
+  .nav-item.active {
+    @apply border-r-gold;
+  }
+
+  .stat-card::before {
+    @apply left-auto right-0;
+  }
+}

@@ -1,0 +1,260 @@
+// @ts-nocheck - i18next packages are installed but TypeScript may not resolve them correctly
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+const resources = {
+    en: {
+        translation: {
+            // Common
+            common: {
+                save: 'Save',
+                cancel: 'Cancel',
+                delete: 'Delete',
+                edit: 'Edit',
+                add: 'Add',
+                search: 'Search',
+                filter: 'Filter',
+                export: 'Export',
+                import: 'Import',
+                loading: 'Loading...',
+                noData: 'No data available',
+                error: 'An error occurred',
+                success: 'Success',
+                confirm: 'Confirm',
+                close: 'Close',
+            },
+
+            // Auth
+            auth: {
+                login: 'Login',
+                logout: 'Logout',
+                email: 'Email',
+                password: 'Password',
+                username: 'Username',
+                forgotPassword: 'Forgot Password?',
+                rememberMe: 'Remember Me',
+                signIn: 'Sign In',
+                signOut: 'Sign Out',
+            },
+
+            // Navigation
+            nav: {
+                dashboard: 'Dashboard',
+                reception: 'Reception',
+                processing: 'Processing',
+                accounting: 'Accounting',
+                inventory: 'Inventory',
+                staff: 'Staff',
+                reports: 'Reports',
+                analytics: 'Analytics',
+                settings: 'Settings',
+            },
+
+            // Dashboard
+            dashboard: {
+                title: 'Dashboard',
+                subtitle: 'Real-time overview of mill operations',
+                totalOrders: 'Total Orders Today',
+                inQueue: 'In Queue',
+                processing: 'Currently Processing',
+                completed: 'Completed Today',
+                productionLines: 'Production Lines Status',
+                recentOrders: 'Recent Orders',
+            },
+
+            // Reception
+            reception: {
+                title: 'Reception',
+                newOrder: 'New Order',
+                customerInfo: 'Customer Information',
+                name: 'Name',
+                phone: 'Phone',
+                village: 'Village',
+                weight: 'Weight (KG)',
+                bags: 'Bags',
+                boxes: 'Boxes',
+                processingType: 'Processing Type',
+                normal: 'Normal',
+                organic: 'Organic',
+                notes: 'Notes',
+                images: 'Images',
+                patchNumber: 'Patch Number',
+                qrCode: 'QR Code',
+                createOrder: 'Create Order',
+            },
+
+            // Processing
+            processing: {
+                title: 'Processing',
+                queue: 'Queue',
+                assignLine: 'Assign Line',
+                assignMalaxers: 'Assign Malaxers',
+                startProcessing: 'Start Processing',
+                stopProcessing: 'Stop Processing',
+                duration: 'Duration',
+                maxDuration: 'Max Duration (60 min)',
+                status: 'Status',
+                malaxing: 'Malaxing',
+                decanter: 'Decanter',
+                finished: 'Finished',
+            },
+
+            // Accounting
+            accounting: {
+                title: 'Accounting',
+                invoice: 'Invoice',
+                oilProduced: 'Oil Produced (KG)',
+                cansUsed: 'Cans Used',
+                gallonsUsed: 'Gallons Used',
+                paymentMethod: 'Payment Method',
+                cash: 'Cash',
+                oilReturn: 'Oil Return',
+                mixed: 'Mixed',
+                fees: 'Fees',
+                total: 'Total',
+                generateInvoice: 'Generate Invoice',
+                downloadPDF: 'Download PDF',
+            },
+        },
+    },
+    ar: {
+        translation: {
+            // Common
+            common: {
+                save: 'حفظ',
+                cancel: 'إلغاء',
+                delete: 'حذف',
+                edit: 'تعديل',
+                add: 'إضافة',
+                search: 'بحث',
+                filter: 'تصفية',
+                export: 'تصدير',
+                import: 'استيراد',
+                loading: 'جاري التحميل...',
+                noData: 'لا توجد بيانات',
+                error: 'حدث خطأ',
+                success: 'نجح',
+                confirm: 'تأكيد',
+                close: 'إغلاق',
+            },
+
+            // Auth
+            auth: {
+                login: 'تسجيل الدخول',
+                logout: 'تسجيل الخروج',
+                email: 'البريد الإلكتروني',
+                password: 'كلمة المرور',
+                username: 'اسم المستخدم',
+                forgotPassword: 'نسيت كلمة المرور؟',
+                rememberMe: 'تذكرني',
+                signIn: 'تسجيل الدخول',
+                signOut: 'تسجيل الخروج',
+            },
+
+            // Navigation
+            nav: {
+                dashboard: 'لوحة التحكم',
+                reception: 'الاستقبال',
+                processing: 'المعالجة',
+                accounting: 'المحاسبة',
+                inventory: 'المخزون',
+                staff: 'الموظفون',
+                reports: 'التقارير',
+                analytics: 'التحليلات',
+                settings: 'الإعدادات',
+            },
+
+            // Dashboard
+            dashboard: {
+                title: 'لوحة التحكم',
+                subtitle: 'نظرة عامة في الوقت الفعلي لعمليات المعصرة',
+                totalOrders: 'إجمالي الطلبات اليوم',
+                inQueue: 'في قائمة الانتظار',
+                processing: 'قيد المعالجة حاليا',
+                completed: 'مكتمل اليوم',
+                productionLines: 'حالة خطوط الإنتاج',
+                recentOrders: 'الطلبات الأخيرة',
+            },
+
+            // Reception
+            reception: {
+                title: 'الاستقبال',
+                newOrder: 'طلب جديد',
+                customerInfo: 'معلومات العميل',
+                name: 'الاسم',
+                phone: 'الهاتف',
+                village: 'القرية',
+                weight: 'الوزن (كجم)',
+                bags: 'الأكياس',
+                boxes: 'الصناديق',
+                processingType: 'نوع المعالجة',
+                normal: 'عادي',
+                organic: 'عضوي',
+                notes: 'ملاحظات',
+                images: 'الصور',
+                patchNumber: 'رقم الدفعة',
+                qrCode: 'رمز الاستجابة السريعة',
+                createOrder: 'إنشاء طلب',
+            },
+
+            // Processing
+            processing: {
+                title: 'المعالجة',
+                queue: 'قائمة الانتظار',
+                assignLine: 'تعيين الخط',
+                assignMalaxers: 'تعيين الخلاطات',
+                startProcessing: 'بدء المعالجة',
+                stopProcessing: 'إيقاف المعالجة',
+                duration: 'المدة',
+                maxDuration: 'المدة القصوى (60 دقيقة)',
+                status: 'الحالة',
+                malaxing: 'الخلط',
+                decanter: 'الفصل',
+                finished: 'منتهي',
+            },
+
+            // Accounting
+            accounting: {
+                title: 'المحاسبة',
+                invoice: 'الفاتورة',
+                oilProduced: 'الزيت المنتج (كجم)',
+                cansUsed: 'العلب المستخدمة',
+                gallonsUsed: 'الجالونات المستخدمة',
+                paymentMethod: 'طريقة الدفع',
+                cash: 'نقدي',
+                oilReturn: 'إرجاع الزيت',
+                mixed: 'مختلط',
+                fees: 'الرسوم',
+                total: 'المجموع',
+                generateInvoice: 'إنشاء فاتورة',
+                downloadPDF: 'تحميل PDF',
+            },
+        },
+    },
+};
+
+i18n
+    .use(LanguageDetector)
+    .use(initReactI18next)
+    .init({
+        resources,
+        fallbackLng: 'en',
+        lng: localStorage.getItem('selectedLanguage') || 'en',
+        interpolation: {
+            escapeValue: false,
+        },
+        detection: {
+            order: ['localStorage', 'navigator'],
+            caches: ['localStorage'],
+        },
+    });
+
+// Set RTL direction based on language
+i18n.on('languageChanged', (lng: string) => {
+    const dir = lng === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.setAttribute('dir', dir);
+    document.body.setAttribute('dir', dir);
+});
+
+export default i18n;
