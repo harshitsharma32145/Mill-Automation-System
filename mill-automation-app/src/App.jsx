@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Menu, X, LogOut } from 'lucide-react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import './App.css';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
@@ -145,6 +146,7 @@ function App() {
   return (
     <Router>
       <AppContent onLogout={handleLogout} />
+      <SpeedInsights />
     </Router>
   );
 }
